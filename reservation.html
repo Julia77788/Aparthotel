@@ -121,7 +121,7 @@
             
             console.log("Formular wird gesendet...");
             
-            var form = event.target; // Das Formular-Element
+            var form = document.getElementById("reservationForm"); // Sicherstellen, dass die ID stimmt
             var formData = new FormData(form);
 
             // Protokolliere die Formulardaten
@@ -130,7 +130,7 @@
             });
 
             // Ersetze "YOUR_SERVICE_ID" durch die tatsächliche Service-ID von EmailJS
-            emailjs.sendForm("service_g1pqo42", "template_36ej4f7", formData)
+            emailjs.sendForm("service_g1pqo42", "template_36ej4f7", form)
                 .then(function(response) {
                     console.log("Antwort erhalten:", response);
                     document.getElementById("formStatus").textContent = "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.";
