@@ -82,7 +82,8 @@
     <!-- EmailJS SDK -->
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        emailjs.init("BR0lwLBwjIlVFmV7h"); // Deine EmailJS Benutzer-ID hier einfügen
+        // Initialisiere EmailJS mit deiner Benutzer-ID
+        emailjs.init("BR0lwLBwjIlVFmV7h");
     </script>
 </head>
 <body>
@@ -116,14 +117,32 @@
             <label for="checkout">Check-out Datum:</label>
             <input type="date" id="checkout" name="checkout" required>
 
-            <label for="room">Zimmertyp:</label>
-            <select id="room" name="room">
-                <option value="studio">Studio</option>
-                <option value="suite">Suite</option>
-            </select>
-
             <label for="message">Zusätzliche Informationen:</label>
             <textarea id="message" name="message" rows="4"></textarea>
 
             <button type="submit">Reservierung Absenden</button>
-        </
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        // Formular-Submit-Event-Listener
+        document.getElementById('reservationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Verhindert das Standard-Formular-Submit-Verhalten
+
+            // EmailJS senden
+            emailjs.sendForm('service_xp0pagi', 'template_36ej4f7', this)
+                .then(function(response) {
+                    alert('Ihre Reservierung wurde erfolgreich gesendet!');
+                    console.log('Success:', response);
+                }, function(error) {
+                    alert('Es gab ein Problem bei der Reservierung. Bitte versuchen Sie es später erneut.');
+                    console.error('Error:', error);
+                });
+        });
+    </script>
+</body>
+</html>
