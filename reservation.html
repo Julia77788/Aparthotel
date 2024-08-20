@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aparthotel Rössli - Reservation</title>
+    <title>Aparthotel Rössli - Zimmer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,27 +36,14 @@
         section h2 {
             color: #87CEEB; /* Himmelblau */
         }
-        .form-group {
-            margin-bottom: 15px;
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input, .form-group textarea {
+        .gallery img {
             width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .form-group button {
-            padding: 10px 20px;
-            background-color: #87CEEB;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .form-group button:hover {
-            background-color: #76c7c0;
+            max-width: 300px;
         }
         footer {
             background-color: #87CEEB; /* Himmelblau */
@@ -64,15 +51,11 @@
             text-align: center;
             padding: 10px 0;
         }
-        #formStatus {
-            margin-top: 15px;
-            font-weight: bold;
-        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Reservation im Aparthotel Rössli</h1>
+        <h1>Zimmer im Aparthotel Rössli</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Startseite</a></li>
@@ -83,62 +66,34 @@
         </nav>
     </header>
 
-    <section id="reservation">
-        <h2>Reservierung Anfragen</h2>
-        <form id="reservationForm">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-Mail:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Nachricht (inkl. E-Mail und Telefonnummer):</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <div class="form-group">
-                <button type="submit">Anfrage senden</button>
-            </div>
-        </form>
-        <div id="formStatus"></div>
+    <section id="zimmer">
+        <h2>Zimmer</h2>
+        <p>Unsere Zimmer sind elegant eingerichtet und bieten:</p>
+        <ul>
+            <li>Smart-TV</li>
+            <li>Eigene Dushe oder Badzimmer</li>
+            <li>Kostenlose Pflegeprodukte</li>
+            <li>Kleine Küche</li>
+            <li>Atemberaubende Aussicht auf die umliegenden Bergen.</li>
+        </ul>
+        <h3>Preise</h3>
+        <ul>
+            <li>Studio ab 105 Fr. pro Nacht</li>
+            <li>Monatspreis: 1700 Fr.</li>
+            <li>Ab 2 Monaten: 1400 Fr. pro Monat</li>
+        </ul>
+        <div class="gallery">
+            <img src="zimmer1.jpg" alt="Zimmer 1">
+            <img src="zimmer2.jpg" alt="Zimmer 2">
+            <img src="zimmer3.jpg" alt="Zimmer 3">
+            <img src="zimmer4.jpg" alt="Zimmer 4">
+	    <img src="zimmer5.jpg" alt="Zimmer 5">
+	    <img src="zimmer6.jpg" alt="Zimmer 6">
+        </div>
     </section>
 
     <footer>
         <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
     </footer>
-
-    <!-- Include EmailJS library -->
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS with your User ID
-        emailjs.init("BR0lwLBwjIlVFmV7h"); // Dein EmailJS User ID
-
-        document.getElementById("reservationForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
-            console.log("Formular wird gesendet...");
-            
-            var form = event.target; // Das Formular-Element
-            var formData = new FormData(form);
-
-            // Protokolliere die Formulardaten
-            formData.forEach((value, key) => {
-                console.log(`Feldname: ${key}, Wert: ${value}`);
-            });
-
-            // Verwende die richtige Service-ID und Template-ID
-            emailjs.sendForm("service_g1pqo42", "template_36ej4f7", form)
-                .then(function(response) {
-                    console.log("Antwort erhalten:", response);
-                    document.getElementById("formStatus").textContent = "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.";
-                    form.reset();
-                }, function(error) {
-                    console.error("Fehler beim Senden:", error);
-                    document.getElementById("formStatus").textContent = "Leider konnte die Anfrage nicht gesendet werden. Bitte versuchen Sie es später erneut.";
-                });
-        });
-    </script>
 </body>
 </html>
