@@ -36,11 +36,104 @@
         section h2 {
             color: #87CEEB; /* Himmelblau */
         }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            padding: 10px 20px;
+            background-color: #87CEEB;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #76c7c0;
+        }
         footer {
             background-color: #87CEEB; /* Himmelblau */
             color: white;
             text-align: center;
             padding: 10px 0;
+        }
+        #formStatus {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reservation im Aparthotel Rössli</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="zimmer.html">Zimmer</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="bewertungen.html">Bewertungen</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="reservation">
+        <h2>Reservierung Anfragen</h2>
+        <form id="reservationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Anfrage senden</button>
+            </div>
+        </form>
+        <div id="formStatus"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- Include EmailJS library -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("YOUR_USER_ID"); // Ersetze mit deinem EmailJS User ID
+
+        document.getElementById("reservationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var form = event.target;
+            var formData = new FormData(form);
+
+            emailjs.sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", formData)
+                .then(function(response) {
+                    document.getElementById("formStatus").textContent = "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.";
+                    form.reset();
+                }, function(error) {
+                    document.getElementById("formStatus").textContent = "Leider konnte die Anfrage nicht gesendet werden. Bitte versuchen Sie es später erneut.";
+                });
+        });
+    </script>
+</body>
+</html>
+
         }
     </style>
 </head>
