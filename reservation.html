@@ -129,20 +129,16 @@
                 console.log(`Feldname: ${key}, Wert: ${value}`);
             });
 
-            // Überprüfe, ob das Formular-Element vorhanden ist
-            if (form) {
-                emailjs.sendForm("smtp.gmx.com", "template_36ej4f7", formData)
-                    .then(function(response) {
-                        console.log("Antwort erhalten:", response);
-                        document.getElementById("formStatus").textContent = "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.";
-                        form.reset();
-                    }, function(error) {
-                        console.error("Fehler beim Senden:", error);
-                        document.getElementById("formStatus").textContent = "Leider konnte die Anfrage nicht gesendet werden. Bitte versuchen Sie es später erneut.";
-                    });
-            } else {
-                console.error("Formular-Element nicht gefunden.");
-            }
+            // Ersetze "YOUR_SERVICE_ID" durch die tatsächliche Service-ID von EmailJS
+            emailjs.sendForm("service_g1pqo42", "template_36ej4f7", formData)
+                .then(function(response) {
+                    console.log("Antwort erhalten:", response);
+                    document.getElementById("formStatus").textContent = "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.";
+                    form.reset();
+                }, function(error) {
+                    console.error("Fehler beim Senden:", error);
+                    document.getElementById("formStatus").textContent = "Leider konnte die Anfrage nicht gesendet werden. Bitte versuchen Sie es später erneut.";
+                });
         });
     </script>
 </body>
