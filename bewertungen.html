@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aparthotel Rössli - Bewertungen</title>
+    <title>Aparthotel Rössli - Reservation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,42 +36,27 @@
         section h2 {
             color: #87CEEB; /* Himmelblau */
         }
-        .review {
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ccc;
-            padding-bottom: 10px;
+        .form-group {
+            margin-bottom: 15px;
         }
-        .review h3 {
-            margin: 0;
-            color: #555;
-        }
-        .review p {
-            margin: 5px 0 0;
-            color: #333;
-        }
-        .review-form {
-            margin-top: 20px;
-            border-top: 1px solid #ccc;
-            padding-top: 20px;
-        }
-        .review-form label {
+        .form-group label {
             display: block;
-            margin-bottom: 10px;
-            color: #555;
+            margin-bottom: 5px;
         }
-        .review-form textarea {
+        .form-group input, .form-group textarea {
             width: 100%;
-            height: 100px;
-            padding: 5px;
-            font-size: 1em;
+            padding: 8px;
+            box-sizing: border-box;
         }
-        .review-form button {
+        .form-group button {
             padding: 10px 20px;
-            background-color: #87CEEB; /* Himmelblau */
-            border: none;
+            background-color: #87CEEB;
             color: white;
-            font-weight: bold;
+            border: none;
             cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #76c7c0;
         }
         footer {
             background-color: #87CEEB; /* Himmelblau */
@@ -79,11 +64,15 @@
             text-align: center;
             padding: 10px 0;
         }
+        #formStatus {
+            margin-top: 15px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Bewertungen</h1>
+        <h1>Reservation im Aparthotel Rössli</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Startseite</a></li>
@@ -95,35 +84,66 @@
         </nav>
     </header>
 
-    <section id="bewertungen">
-        <h2>Bewertungen unserer Gäste</h2>
-        <div class="review">
-            <h3>John Doe</h3>
-            <p>Ein wunderbarer Aufenthalt! Die Zimmer sind sauber und gut ausgestattet. Das Personal ist freundlich und hilfsbereit. Ich komme gerne wieder!</p>
-        </div>
-        <div class="review">
-            <h3>Jane Smith</h3>
-            <p>Sehr gemütlich und sauber. Die Lage ist perfekt, um die Natur zu genießen und dennoch nahe an der Stadt Zug zu sein. Ich kann dieses Hotel nur empfehlen.</p>
-        </div>
-        <div class="review">
-            <h3>Michael Müller</h3>
-            <p>Das Aparthotel Rössli ist einfach großartig. Die Aussicht auf die Berge und den See ist atemberaubend. Das Zimmer hatte alles, was ich brauchte. Sehr zu empfehlen!</p>
-        </div>
-
-        <div class="review-form">
-            <h3>Schreiben Sie eine Bewertung</h3>
-            <form action="#">
-                <label for="review-name">Name:</label>
-                <input type="text" id="review-name" name="review-name" required><br>
-                <label for="review-text">Bewertung:</label><br>
-                <textarea id="review-text" name="review-text" required></textarea><br>
-                <button type="submit">Absenden</button>
-            </form>
-        </div>
+    <section id="reservation">
+        <h2>Reservierung Anfragen</h2>
+        <form id="reservationForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefonnummer:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Nachricht:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Anfrage senden</button>
+            </div>
+        </form>
+        <div id="formStatus"></div>
     </section>
 
     <footer>
         <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
     </footer>
+
+    <!-- Include EmailJS library -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your User ID
+        emailjs.init("BR0lwLBwjIlVFmV7h"); // Dein EmailJS User ID
+
+        document.getElementById("reservationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            console.log("Formular wird gesendet...");
+            
+            var form = event.target; // Das Formular-Element
+            var formData = new FormData(form);
+
+            // Protokolliere die Formulardaten
+            formData.forEach((value, key) => {
+                console.log(`Feldname: ${key}, Wert: ${value}`);
+            });
+
+            // Ersetze "YOUR_SERVICE_ID" durch die tatsächliche Service-ID von EmailJS
+            emailjs.sendForm("service_g1pqo42", "template_36ej4f7", form)
+                .then(function(response) {
+                    console.log("Antwort erhalten:", response);
+                    document.getElementById("formStatus").textContent = "Vielen Dank für Ihre Anfrage. Wir werden uns bald bei Ihnen melden.";
+                    form.reset();
+                }, function(error) {
+                    console.error("Fehler beim Senden:", error);
+                    document.getElementById("formStatus").textContent = "Leider konnte die Anfrage nicht gesendet werden. Bitte versuchen Sie es später erneut.";
+                });
+        });
+    </script>
 </body>
 </html>
