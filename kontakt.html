@@ -3,96 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aparthotel Rössli - Kontakt</title>
+    <title>Kontakt - Aparthotel Rössli</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
         header {
-            background-color: #87CEEB; /* Himmelblau */
-            padding: 10px;
+            background-color: #87CEEB;
+            padding: 20px;
             text-align: center;
+            color: white;
         }
         header h1 {
             margin: 0;
-            color: white;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 20px;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
         }
         section {
             padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
         }
         section h2 {
-            color: #87CEEB; /* Himmelblau */
+            color: #87CEEB;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
+        .contact-info strong {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 5px;
         }
         footer {
-            background-color: #87CEEB; /* Himmelblau */
+            background-color: #87CEEB;
             color: white;
             text-align: center;
-            padding: 10px 0;
-        }
-        iframe {
+            padding: 15px 0;
+            position: fixed;
             width: 100%;
-            height: 400px;
-            border: 0;
+            bottom: 0;
         }
-        .whatsapp-icon, .phone-icon, .map-icon {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-size: cover;
-            vertical-align: middle;
-        }
-        .whatsapp-icon {
-            background-image: url('whatsapp-icon.png'); /* Pfad zum WhatsApp-Logo */
-        }
-        .phone-icon {
-            background-image: url('phone-icon.png'); /* Pfad zum Telefon-Logo */
-        }
-        .map-icon {
-            background-image: url('map-icon.png'); /* Pfad zum Google Maps Icon */
-        }
-        .contact-link {
-            text-decoration: none;
-            color: #333;
-            margin-left: 10px;
-            vertical-align: middle;
+        @media (max-width: 600px) {
+            section {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Kontakt</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="zimmer.html">Zimmer</a></li>
-                <li><a href="reservation.html">Reservation</a></li>
-                <li><a href="bewertungen.html">Bewertungen</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-            </ul>
-        </nav>
+        <h1>Kontaktieren Sie uns</h1>
     </header>
 
-    <section id="kontakt">
-        <h2>Kontaktieren Sie uns</h2>
-        <p>Adresse: <a href="https://www.google.com/maps/search/?api=1&query=Zugerstrasse%20142%2C%206314%20Unter%C3%A4geri" class="contact-link"><span class="map-icon"></span>Zugerstrasse 142, 6314 Unterägeri</a></p>
-        <p>Telefon: <a href="tel:+41618215207" class="contact-link"><span class="phone-icon"></span>061 821 52 07</a></p>
-        <p>Email: <a href="mailto:booking.swisshotel@gmx.ch">booking.swisshotel@gmx.ch</a></p>
-        <p>WhatsApp: <a href="https://wa.me/41788880405" class="contact-link"><span class="whatsapp-icon"></span>+41788880405</a></p>
-        <h3>Unsere Lage</h3>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.7643037281626!2d8.586618415621208!3d47.13738917915839!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479aef65e8a8a7c3%3A0x2a2f7f7a4a62f9dd!2sZugerstrasse%20142%2C%206314%20Unter%C3%A4geri!5e0!3m2!1sde!2sch!4v1621379239534!5m2!1sde!2sch" allowfullscreen="" loading="lazy"></iframe>
+    <section>
+        <h2>Unsere Kontaktinformationen</h2>
+        <div class="contact-info">
+            <p><strong>Adresse:</strong> <a href="https://www.google.com/maps?q=Zugerstrasse+142,+6314+Unterägeri" target="_blank">Zugerstrasse 142, 6314 Unterägeri</a></p>
+            <p><strong>Telefon:</strong> <a href="tel:+41618210507">061 821 52 07</a></p>
+            <p><strong>Email:</strong> <a href="mailto:booking.swisshotel@gmx.ch">booking.swisshotel@gmx.ch</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/41788880405" target="_blank">+41 78 888 04 05</a></p>
+        </div>
+        <p>Wir freuen uns auf Ihre Nachricht oder Ihren Anruf. Unser Team ist immer für Sie da, um Ihre Fragen zu beantworten oder Ihre Reservierung entgegenzunehmen.</p>
     </section>
 
     <footer>
