@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparthotel Rössli - Bewertungen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #87CEEB; /* Himmelblau */
+            padding: 10px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        section h2 {
+            color: #87CEEB; /* Himmelblau */
+        }
+        .review {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .review h3 {
+            margin: 0;
+            color: #555;
+        }
+        .review p {
+            margin: 5px 0 0;
+            color: #333;
+        }
+        .review-form {
+            margin-top: 20px;
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+        .review-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .review-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 5px;
+            font-size: 1em;
+        }
+        .review-form button {
+            padding: 10px 20px;
+            background-color: #87CEEB; /* Himmelblau */
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #87CEEB; /* Himmelblau */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bewertungen</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="zimmer.html">Zimmer</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="bewertungen.html">Bewertungen</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="bewertungen">
+        <h2>Bewertungen unserer Gäste</h2>
+        <div class="review">
+            <h3>John Doe</h3>
+            <p>Ein wunderbarer Aufenthalt! Die Zimmer sind sauber und gut ausgestattet. Das Personal ist freundlich und hilfsbereit. Ich komme gerne wieder!</p>
+        </div>
+        <div class="review">
+            <h3>Jane Smith</h3>
+            <p>Sehr gemütlich und sauber. Die Lage ist perfekt, um die Natur zu genießen und dennoch nahe an der Stadt Zug zu sein. Ich kann dieses Hotel nur empfehlen.</p>
+        </div>
+        <div class="review">
+            <h3>Michael Müller</h3>
+            <p>Das Aparthotel Rössli ist einfach großartig. Die Aussicht auf die Berge und den See ist atemberaubend. Das Zimmer hatte alles, was ich brauchte. Sehr zu empfehlen!</p>
+        </div>
+
+        <div class="review-form">
+            <h3>Schreiben Sie eine Bewertung</h3>
+            <form action="#">
+                <label for="review-name">Name:</label>
+                <input type="text" id="review-name" name="review-name" required><br>
+                <label for="review-text">Bewertung:</label><br>
+                <textarea id="review-text" name="review-text" required></textarea><br>
+                <button type="submit">Absenden</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>

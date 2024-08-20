@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparthotel Rössli - Reservation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #87CEEB; /* Himmelblau */
+            padding: 10px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        section h2 {
+            color: #87CEEB; /* Himmelblau */
+        }
+        footer {
+            background-color: #87CEEB; /* Himmelblau */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reservation im Aparthotel Rössli</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="zimmer.html">Zimmer</a></li>
+                <li><a href="reservation.html">Reservation</a></li>
+                <li><a href="bewertungen.html">Bewertungen</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="reservation">
+        <h2>Reservation</h2>
+        <form action="reservation.html" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="phone">Telefon:</label>
+            <input type="tel" id="phone" name="phone" required><br>
+            <label for="from-date">Von Datum:</label>
+            <input type="date" id="from-date" name="from-date" required><br>
+            <label for="to-date">Bis Datum:</label>
+            <input type="date" id="to-date" name="to-date" required><br>
+            <button type="submit">Reservieren</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
