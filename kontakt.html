@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt - Aparthotel Rössli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,14 +45,32 @@
             font-size: 1.2em;
             margin-bottom: 5px;
         }
+        .contact-info a {
+            text-decoration: none;
+            color: #333;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .contact-info .fa {
+            margin-right: 8px;
+        }
         footer {
             background-color: #87CEEB;
             color: white;
             text-align: center;
             padding: 15px 0;
-            position: fixed;
-            width: 100%;
+            position: relative;
             bottom: 0;
+            width: 100%;
+        }
+        .map-container {
+            margin-top: 20px;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
         }
         @media (max-width: 600px) {
             section {
@@ -71,9 +90,17 @@
             <p><strong>Adresse:</strong> <a href="https://www.google.com/maps?q=Zugerstrasse+142,+6314+Unterägeri" target="_blank">Zugerstrasse 142, 6314 Unterägeri</a></p>
             <p><strong>Telefon:</strong> <a href="tel:+41618210507">061 821 52 07</a></p>
             <p><strong>Email:</strong> <a href="mailto:booking.swisshotel@gmx.ch">booking.swisshotel@gmx.ch</a></p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/41788880405" target="_blank">+41 78 888 04 05</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/41788880405" target="_blank"><i class="fab fa-whatsapp"></i> +41 78 888 04 05</a></p>
         </div>
         <p>Wir freuen uns auf Ihre Nachricht oder Ihren Anruf. Unser Team ist immer für Sie da, um Ihre Fragen zu beantworten oder Ihre Reservierung entgegenzunehmen.</p>
+        
+        <!-- Google Maps Embed -->
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBVmJwJlmzzEebceUMwjGlABTXlB5LRvCU&q=Zugerstrasse+142,+6314+Unterägeri"
+                allowfullscreen=""
+                loading="lazy"></iframe>
+        </div>
     </section>
 
     <footer>
