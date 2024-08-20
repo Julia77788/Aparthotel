@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aparthotel Rössli - Zimmer</title>
+    <title>Reservation - Aparthotel Rössli</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
         header {
             background-color: #87CEEB; /* Himmelblau */
             padding: 10px;
             text-align: center;
+            color: white;
         }
         header h1 {
             margin: 0;
-            color: white;
         }
         nav ul {
             list-style-type: none;
@@ -32,30 +36,53 @@
         }
         section {
             padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
         }
         section h2 {
-            color: #87CEEB; /* Himmelblau */
+            color: #87CEEB;
         }
-        .gallery {
+        form {
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column;
         }
-        .gallery img {
-            width: 100%;
-            max-width: 300px;
+        form label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        form input, form select, form textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        form button {
+            padding: 10px;
+            background-color: #87CEEB;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #1E90FF;
         }
         footer {
-            background-color: #87CEEB; /* Himmelblau */
+            background-color: #87CEEB;
             color: white;
             text-align: center;
-            padding: 10px 0;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Zimmer im Aparthotel Rössli</h1>
+        <h1>Reservation im Aparthotel Rössli</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Startseite</a></li>
@@ -66,30 +93,35 @@
         </nav>
     </header>
 
-    <section id="zimmer">
-        <h2>Zimmer</h2>
-        <p>Unsere Zimmer sind elegant eingerichtet und bieten:</p>
-        <ul>
-            <li>Smart-TV</li>
-            <li>Eigene Dushe oder Badzimmer</li>
-            <li>Kostenlose Pflegeprodukte</li>
-            <li>Kleine Küche</li>
-            <li>Atemberaubende Aussicht auf die umliegenden Bergen.</li>
-        </ul>
-        <h3>Preise</h3>
-        <ul>
-            <li>Studio ab 105 Fr. pro Nacht</li>
-            <li>Monatspreis: 1700 Fr.</li>
-            <li>Ab 2 Monaten: 1400 Fr. pro Monat</li>
-        </ul>
-        <div class="gallery">
-            <img src="zimmer1.jpg" alt="Zimmer 1">
-            <img src="zimmer2.jpg" alt="Zimmer 2">
-            <img src="zimmer3.jpg" alt="Zimmer 3">
-            <img src="zimmer4.jpg" alt="Zimmer 4">
-	    <img src="zimmer5.jpg" alt="Zimmer 5">
-	    <img src="zimmer6.jpg" alt="Zimmer 6">
-        </div>
+    <section id="reservation">
+        <h2>Reservieren Sie Ihr Zimmer</h2>
+        <form action="submit-reservation.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Telefon:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="checkin">Check-in Datum:</label>
+            <input type="date" id="checkin" name="checkin" required>
+
+            <label for="checkout">Check-out Datum:</label>
+            <input type="date" id="checkout" name="checkout" required>
+
+            <label for="room">Zimmertyp:</label>
+            <select id="room" name="room">
+                <option value="studio">Studio</option>
+                <option value="suite">Suite</option>
+            </select>
+
+            <label for="message">Zusätzliche Informationen:</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+
+            <button type="submit">Reservierung Absenden</button>
+        </form>
     </section>
 
     <footer>
