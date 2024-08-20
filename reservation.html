@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservation - Aparthotel Rössli</title>
+    <title>Aparthotel Rössli - Reservation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -79,6 +79,11 @@
             width: 100%;
         }
     </style>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        emailjs.init("BR0lwLBwjIlVFmV7h"); // Deine EmailJS Benutzer-ID hier einfügen
+    </script>
 </head>
 <body>
     <header>
@@ -95,7 +100,7 @@
 
     <section id="reservation">
         <h2>Reservieren Sie Ihr Zimmer</h2>
-        <form action="submit-reservation.php" method="POST">
+        <form id="reservationForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -127,5 +132,24 @@
     <footer>
         <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
     </footer>
+
+    <script>
+        document.getElementById('reservationForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Verhindert das Standard-Formular-Submit-Verhalten
+
+            // Hier die Daten sammeln
+            const formData = new FormData(this);
+
+            // EmailJS senden
+            emailjs.sendForm('service_xp0pagi', 'template_36ej4f7', formData)
+                .then(function(response) {
+                    alert('Ihre Reservierung wurde erfolgreich gesendet!');
+                    console.log('Success:', response);
+                }, function(error) {
+                    alert('Es gab ein Problem bei der Reservierung. Bitte versuchen Sie es später erneut.');
+                    console.error('Error:', error);
+                });
+        });
+    </script>
 </body>
 </html>
