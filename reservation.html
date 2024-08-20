@@ -126,30 +126,4 @@
             <textarea id="message" name="message" rows="4"></textarea>
 
             <button type="submit">Reservierung Absenden</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Aparthotel Rössli. Alle Rechte vorbehalten.</p>
-    </footer>
-
-    <script>
-        document.getElementById('reservationForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Verhindert das Standard-Formular-Submit-Verhalten
-
-            // Hier die Daten sammeln
-            const formData = new FormData(this);
-
-            // EmailJS senden
-            emailjs.sendForm('service_xp0pagi', 'template_36ej4f7', formData)
-                .then(function(response) {
-                    alert('Ihre Reservierung wurde erfolgreich gesendet!');
-                    console.log('Success:', response);
-                }, function(error) {
-                    alert('Es gab ein Problem bei der Reservierung. Bitte versuchen Sie es später erneut.');
-                    console.error('Error:', error);
-                });
-        });
-    </script>
-</body>
-</html>
+        </
